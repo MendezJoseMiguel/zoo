@@ -115,33 +115,49 @@ while True:
 
     elif answer_user == '1':
         
-        new_leon = zoo1.add_lion(input('Leon name:'))
+        new_leon = input('Lion name:')
+        zoo1.add_lion(new_leon)
         print(f"El  agregado se llama {new_leon}")
     elif answer_user == '2':
         
-        new_panda = zoo1.add_panda(input('Panda name:'))
+        new_panda = input('Panda name:')
+        zoo1.add_panda(new_panda)
         print(f"El  agregado se llama {new_panda}")
     elif answer_user =='3':
     
-        new_bird=zoo1.add_bird(input('Bird name:'))
+        new_bird = input('Bird name:')
+        zoo1.add_bird(new_bird)
         print(f"El  agregado se llama {new_bird}")
     elif answer_user=='4':
         for i in range(len(zoo1.animals)):
             print(f"{i+1}: {zoo1.animals[i].name}")
-        print("¿De cual animal necesita informacion \n 1: Alex \n 2: Nala \n 3: Po \n 4: Baloo \n 5: PePillo \n 6: Blue \n")
-        elegir_animal = input('¿Cual animal?')
-        if elegir_animal == '1':
-            zoo1.animals[0].display_info()
-        elif elegir_animal=='2':
-            zoo1.animals[1].display_info()
-        elif elegir_animal=='3':
-            zoo1.animals[2].display_info()
-        elif elegir_animal=='4':
-            zoo1.animals[3].display_info()
-        elif elegir_animal=='5':
-            zoo1.animals[4].display_info()
-        elif elegir_animal=='6':
-            zoo1.animals[5].display_info()
+        print("¿De cual animal necesita informacion \n 1: Alex \n 2: Nala \n 3: Po \n 4: Baloo \n 5: Pepillo \n 6: Blue \n")
+        verificar_lista = input('¿El animal aparece en la lista? presione 1 si es correcto o 2 si es incorrecto')
+        if verificar_lista == '1':
+
+            elegir_animal = input('¿Cual animal?')
+            if elegir_animal == '1':
+                zoo1.animals[0].display_info()
+            elif elegir_animal=='2':
+                zoo1.animals[1].display_info()
+            elif elegir_animal=='3':
+                zoo1.animals[2].display_info()
+            elif elegir_animal=='4':
+                zoo1.animals[3].display_info()
+            elif elegir_animal=='5':
+                zoo1.animals[4].display_info()
+            elif elegir_animal=='6':
+                zoo1.animals[5].display_info()
+        else:
+            name_animal = input('¿Cual es el nombre del animal?')
+            name_animal == None
+            for i in range(len(zoo1.animals)):
+                if name_animal == zoo1.animals[i].name:
+                    zoo1.animals[i].display_info()
+            if name_animal == None:
+                print("El animal no se encuentra en el Zoo")
+        
+
     elif answer_user == '5':
         print("¿Cual animal desea alimentar?")
         resp_user = input('1:Alimentar Lion \n2: Alimentar Panda \n3: Alimentar Bird \n 0: Exit \n')        
@@ -157,5 +173,6 @@ while True:
         elif resp_user == '3':
             zoo1.animals[4].alimentar('frutas')
             zoo1.animals[5].alimentar('frutas')
+            print("Ha alimentado a las aves")
         elif resp_user == '0':
             break
